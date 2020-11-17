@@ -1,12 +1,12 @@
 version: "3"
 
-services: 
-    app:
-        build:
-            context: .
-        ports: 
-            - "8686:8686"
-        volumes: 
-            - ./app:/app
-        command: >
-            sh -c "python manage.py runserver 0.0.0.0:8686"
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8686:8686"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8686"
