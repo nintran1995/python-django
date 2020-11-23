@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'core',
     'user',
+    'recipe',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': os.environ.get('DB_NAME'),
+        'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': os.environ.get('DB_HOST'),
             'username': os.environ.get('DB_USER'),

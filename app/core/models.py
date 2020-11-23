@@ -1,6 +1,7 @@
+from django.db.models import constraints
 from djongo import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
-                                        PermissionsMixin
+    PermissionsMixin
 
 
 class UserManager(BaseUserManager):
@@ -35,3 +36,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class Tag(models.Model):
+    """Tag to be user for a recipe"""
+    name = models.CharField(max_length=255)
+    user = models.ArrayReferenceField(
+        to=User,
+        on_delete=models.CASCADE
+    )
+    objects = models.DjongoManager()
+
+    def __str__(self):
+        return self.name
