@@ -1,10 +1,10 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
-from ..models import Tag
+from .. import models
 
 
-def sample_user(email='testpass@gmail.com', password='testpass'):
+def sample_user(email='test@gmail.com', password='testpass'):
     """Create a sample user"""
     return get_user_model().objects.create_user(email, password)
 
@@ -48,7 +48,7 @@ class ModelTests(TestCase):
     def test_tag_str(self):
         """Test the tag string representation"""
         user = sample_user()
-        tag = Tag.objects.create(
+        tag = models.Tag.objects.create(
             user=user,
             name='Vegan'
         )

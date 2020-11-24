@@ -7,9 +7,7 @@ from core.models import Tag
 from .serializers import TagSerializer
 
 
-class TagViewSet(viewsets.GenericViewSet,
-                 mixins.ListModelMixin,
-                 mixins.CreateModelMixin):
+class TagViewSet(viewsets.ModelViewSet):
     """Manage tags in the database"""
     authenticate_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
